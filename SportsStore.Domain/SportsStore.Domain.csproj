@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IProductRepository.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
