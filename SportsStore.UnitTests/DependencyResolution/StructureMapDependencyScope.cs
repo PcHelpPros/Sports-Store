@@ -20,9 +20,10 @@ namespace SportsStore.UnitTests.DependencyResolution {
     using System.Collections.Generic;
     using System.Linq;
     using System.Web;
-
+    using SportsStore.Domain.Abstract;
     using Microsoft.Practices.ServiceLocation;
-
+    using Moq;
+    using SportsStore.Domain.Entities;
     using StructureMap;
 	
     /// <summary>
@@ -42,9 +43,21 @@ namespace SportsStore.UnitTests.DependencyResolution {
                 throw new ArgumentNullException("container");
             }
             Container = container;
+            AddBindings(container);
         }
 
         #endregion
+
+        private void AddBindings(IContainer container)
+        {
+            Mock<IProductRepository> mock = new Mock<IProductRepository>();
+            mock.Setup(m => m.Products).Returns(new List<Product>{
+                new Product { Name = "Football", Price = 25 },
+                new Product { Name = "Surf board", Price = 179 },
+                new Product { Name = "Running shoed", Price = 25 }
+            });
+        }
+
 
         #region Public Properties
 
