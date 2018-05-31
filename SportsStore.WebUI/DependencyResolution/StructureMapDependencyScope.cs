@@ -43,7 +43,7 @@ namespace SportsStore.WebUI.DependencyResolution {
                 throw new ArgumentNullException("container");
             }
             Container = container;
-            AddBindings(container);
+            //AddBindings(container);
         }
 
         #endregion
